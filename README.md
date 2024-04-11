@@ -27,7 +27,7 @@ Develop a responsive web application that enables users to search for Pokémon u
      - The list of game versions it appears in, transforming this into a `game_versions` array.
    - Use Algolia’s `browseObjects` method to fetch existing records, enrich them with PokéAPI information, and update your dataset using `partialUpdateObjects` to include `game_versions` and `imageUrl`.
 
-#### Expected Format of a Final Record
+#### Expected Format of a Final Record in your newly Algolia Dashboard
 
 ```json
 {
