@@ -53,10 +53,12 @@ Develop a responsive web application that enables users to search for Pokémon u
 ```
 
 ### Part 2: Building the Search Experience
-- **Project Setup**: Choose your preferred web development framework and set up the project. Integrate Tailwind CSS or standard CSS for styling.
-- **Algolia Integration**:
+1. **Project Setup**: Choose your preferred web development framework and set up the project. Integrate Tailwind CSS or standard CSS for styling.
+
+2. **Algolia Integration**:
   - Implement Algolia search in your application using the InstantSearch library.
-- **Search Interface**:
+
+3. **Search Interface**:
   - **Search Bar**: Implement a search bar to initiate searches.
   - **Search Results**: Display dynamic search results, showing each Pokémon's image, name, type, and stats.
   - **Filters**:
@@ -65,7 +67,7 @@ Develop a responsive web application that enables users to search for Pokémon u
 
 #### Bonus Challenges
 - **Language Switcher**: Implement a dropdown to switch the display language of Pokémon names. Support English, Japanese, Chinese, and French.
-- **Team Formation**: Allow users to select up to six Pokémon to form a team, displaying the team on the page with options to modify it.
+- **Team Formation**: Allow users to select up to six Pokémon to form a team, displaying the team on the page or as a modal with options to modify it.
 - **Persistent Preferences**: Use local storage or any state manager with persistent services to save the user’s language preference and Pokémon team across page reloads.
 
 ### Evaluation Criteria
@@ -75,7 +77,7 @@ Develop a responsive web application that enables users to search for Pokémon u
 - **Algolia Integration**: Demonstrates effective use of Algolia for search capabilities and data updates.
 - **Creativity and Problem-Solving**: Showcases innovative solutions and thoughtful UI/UX design.
 
-### Submission Instructions
+## 🎉 Submission Instructions
 - Submit your project as a GitHub repository link. Ensure it is public or shared with the relevant parties.
 - Include a README file with setup instructions, a brief overview of technologies used, and special instructions for accessing the features you've implemented, especially the bonus challenges.
 
