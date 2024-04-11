@@ -20,7 +20,7 @@ Develop a responsive web application that enables users to search for Pokémon u
 
 2. **Download the Provided Pokémon Dataset**: Begin with the basic dataset provided.
 
-3. **Enrich the Dataset Using (PokéAPI)[https://pokeapi.co/]**:
+3. **Enrich the Dataset Using [PokéAPI](https://pokeapi.co/)**:
    - The provided dataset is missing crucial information like `images` and `game_versions`. Correct this by using the PokéAPI to fetch this data for each Pokémon in the provided dataset.
    - For each Pokémon, retrieve:
      - The image URL, storing it in an `imageUrl` field.
