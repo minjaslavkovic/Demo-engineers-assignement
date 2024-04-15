@@ -66,11 +66,17 @@ Develop a responsive web application that enables users to search for Pokémon u
   - **Filters**:
     - Implement filters using instant search custom widget for Pokémon type, game versions, and at least one stat (using a range slider). (link to custom widgets here)
     - Ensure the UI for these filters is intuitive and user-friendly.
+  - **Language Switcher**: Implement a dropdown to switch the display language of Pokémon names. Support English, Japanese, Chinese, and French.
+  - **Persistent Preferences**: Use local storage or any state manager with persistent services to save the user’s language preference and Pokémon team across page reloads.
+
+Attached is a wireframe outlining the proposed design for your user interface. That said, feel free to exercise as much creativity as you wish.
+
+![DE assignement - Wireframe](https://github.com/algolia/Demo-engineers-assignement/assets/47173348/19ed5df2-fb45-494a-af0d-490f4457cf24)
+
 
 #### Bonus Challenges
-- **Language Switcher**: Implement a dropdown to switch the display language of Pokémon names. Support English, Japanese, Chinese, and French.
-- **Team Formation**: Allow users to select up to six Pokémon to form a team, displaying the team on the page or as a modal with the ability to edit the team's pokemons.
-- **Persistent Preferences**: Ensure that your user's language and team preferences are saved and persist a page reload.
+- **Team Formation**: Allow users to select up to six Pokémon to form a team, displaying the team on the page or as a modal with options to modify it.
+
 
 ### Evaluation Criteria
 - **Functionality**: All features including: search, filters, and the bonus features work correctly.
