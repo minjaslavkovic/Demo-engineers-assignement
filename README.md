@@ -71,7 +71,8 @@ Develop a responsive web application that enables users to search for Pokémon u
 
 Attached is a wireframe outlining the proposed design for your user interface. That said, feel free to exercise as much creativity as you wish.
 
-![DE assignement - Wireframe](https://github.com/algolia/Demo-engineers-assignement/assets/47173348/19ed5df2-fb45-494a-af0d-490f4457cf24)
+![Wireframe - DE - Assignement 2024](https://github.com/algolia/Demo-engineers-assignement/assets/47173348/009a0aaf-a9d2-4c30-9651-a118bf123897)
+
 
 
 #### Bonus Challenges
