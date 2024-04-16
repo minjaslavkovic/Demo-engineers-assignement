@@ -15,10 +15,10 @@ Develop a responsive web application that enables users to search for Pokémon u
 
 ### Part 1: Dataset Preparation and Enrichment
 1. **Initial Setup with Algolia**:
-   - Sign up to Algolia and create a new application. (Put the Dashboard URL here)
+   - Sign up to Algolia and create a new application. [sign up page](https://dashboard.algolia.com/users/sign_up)
 
 2. **Download the Provided Pokémon Dataset**:
-   - Begin with the basic dataset provided. (link the dataset here)
+   - Begin with the basic dataset provided. [Pokedex.json](pokedex/pokedex.json)
    - Upload the data to your Algolia Application, creating your first index.
 
 4. **Enrich the Dataset Using [PokéAPI](https://pokeapi.co/)**:
@@ -27,7 +27,7 @@ Develop a responsive web application that enables users to search for Pokémon u
      - The image URL, storing it in an `imageUrl` field.
      - The list of game versions it appears in, transforming this into a `game_versions` array.
    - Use Algolia’s `browseObjects` method to fetch existing records, enrich them with PokéAPI information, and update your dataset using `partialUpdateObjects` to include `game_versions` and `imageUrl`.
-   - You can use the Algolia API Docs to conduct your data transformation (provide url to api ref docs here).
+   - You can use the Algolia API Docs to conduct your data transformation. [Documentation API](https://www.algolia.com/doc/)
 
 #### Expected Format of a Final Record in your newly Algolia Dashboard
 
@@ -58,13 +58,13 @@ Develop a responsive web application that enables users to search for Pokémon u
 1. **Project Setup**: Choose your preferred web development framework and set up the project. Use Tailwind or standard CSS/SASS for styling.
 
 2. **Algolia Integration**:
-  - Implement Algolia search in your application using the InstantSearch library. (Link to InstantSearch Docs here)
+  - Implement Algolia search in your application using the InstantSearch library. [Instant Search Documentation](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/js/)
 
 3. **Search Interface**:
   - **Search Bar**: Create a search bar to initiate searches.
   - **Search Results**: Display dynamic search results, showing each Pokémon's image, name, type, and stats.
   - **Filters**:
-    - Implement filters using instant search custom widget for Pokémon type, game versions, and at least one stat (using a range slider). (link to custom widgets here)
+    - Implement filters using instant search custom widget for Pokémon type, game versions, and at least one stat (using a range slider).
     - Ensure the UI for these filters is intuitive and user-friendly.
   - **Language Switcher**: Implement a dropdown to switch the display language of Pokémon names. Support English, Japanese, Chinese, and French.
   - **Persistent Preferences**: Use local storage or any state manager with persistent services to save the user’s language preference and Pokémon team across page reloads.
