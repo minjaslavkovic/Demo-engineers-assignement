@@ -74,11 +74,6 @@ Attached is a wireframe outlining the proposed design for your user interface. T
 ![Wireframe - DE - Assignement 2024](https://github.com/algolia/Demo-engineers-assignement/assets/47173348/009a0aaf-a9d2-4c30-9651-a118bf123897)
 
 
-
-#### Bonus Challenges
-- **Team Formation**: Allow users to select up to six Pokémon to form a team, displaying the team on the page or as a modal with options to modify it.
-
-
 ### Evaluation Criteria
 - **Functionality**: All features including: search, filters, and the bonus features work correctly.
 - **Code Quality**: The code should be clean, well-documented and follow best practices. Important: The exercise should follow a coherent and logical folder structure.
