@@ -55,7 +55,7 @@ Develop a responsive web application that enables users to search for Pokémon u
 ```
 
 ### Part 2: Building the Search Experience
-1. **Project Setup**: Choose your preferred web development framework and set up the project. Use Tailwind or standard CSS/SASS for styling. You can also use the recat-boilerplate that is provided in this repository.
+1. **Project Setup**: Choose your preferred web development framework and set up the project. Use Tailwind or standard CSS/SASS for styling. You can also use the react-boilerplate that is provided in this repository.
 
 2. **Algolia Integration**:
   - Implement Algolia search in your application using the InstantSearch library. [Instant Search Documentation](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/js/)
