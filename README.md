@@ -70,7 +70,7 @@ Develop a responsive web application that enables users to search for Pokémon u
     - Implement filters using instant search custom widget for Pokémon type, game versions, and at least one stat (using a range slider).
     - Ensure the UI for these filters is intuitive and user-friendly.
   - **Language Switcher**: Implement a dropdown to switch the display language of Pokémon names. Support English, Japanese, Chinese, and French.
-  - **Persistent Preferences**: Use local storage or any state manager with persistent services to save the user’s language preference and Pokémon team across page reloads.
+  - **Persistent Preferences**: Use local storage or any state manager with persistent services to save the user’s language preference across page reloads.
 
 Attached is a wireframe outlining the proposed design for your user interface. That said, feel free to exercise as much creativity as you wish.
 
