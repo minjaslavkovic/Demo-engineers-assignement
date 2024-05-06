@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useInfiniteHits, UseInfiniteHitsProps, Highlight } from 'react-instantsearch';
 import Modal from './Modal';
 
@@ -15,7 +15,7 @@ export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSw
     const [hoveredHitIndex, setHoveredHitIndex] = useState(null);
     const [selectedHit, setSelectedHit] = useState(null);
 
-    const handleMouseEnter = (index) => {
+    const handleMouseEnter = (index: any) => {
         setIsHovered(true);
         setHoveredHitIndex(index);
     };
@@ -32,7 +32,7 @@ export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSw
         });
     };
 
-    const getLocalizedHitName = (hit) => {
+    const getLocalizedHitName = (hit: any) => {
         switch (language) {
             case 'japanese':
                 return (
@@ -61,7 +61,7 @@ export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSw
         }
     };
 
-    const openModal = (hit) => {
+    const openModal = (hit: any) => {
         setSelectedHit(hit);
     };
 
@@ -72,7 +72,7 @@ export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSw
     return (
         <div>
             <div className="flex flex-wrap -mx-2">
-                {hits.map((hit, index) => (
+                {hits.map((hit: any, index) => (
                     <div
                         key={hit.objectID}
                         className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/3 px-2 mb-4 hover:scale-105 transition-transform duration-300 cursor-pointer hover:cursor-pointer ${hits.length === 1 ? 'md:w-full lg:w-full' : '' }`}

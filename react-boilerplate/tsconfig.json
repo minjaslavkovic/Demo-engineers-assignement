@@ -21,7 +21,10 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Allow JavaScript files */
-    "allowJs": true
+    "allowJs": true,
+
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

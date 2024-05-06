@@ -1,4 +1,4 @@
-const Modal = (props) => {
+const Modal = (props: any) => {
     const { isOpen, onClose, hit, imageSwitchEnabled, language } = props;
 
     if (!isOpen) return null;
