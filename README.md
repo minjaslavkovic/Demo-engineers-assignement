@@ -1,93 +1,37 @@
-# Demo-engineers-assignement
+# Demo-engineers-assignement: Pokémon Search Experience with Algolia
 
-# Pokémon Search Experience with Algolia
+This project is a responsive web application that enables users to search for Pokémon using Algolia. It integrates with the PokéAPI to enrich the Pokémon data and implementing dynamic search features with filters, including a language switcher to display Pokémon names in multiple languages. It also includes an image switcher and a modal that represents each Pokémon.
 
-## 👉 Objective
-Develop a responsive web application that enables users to search for Pokémon using Algolia. This involves integrating with the PokéAPI to enrich the Pokémon data and implementing dynamic search features with filters, including a language switcher to display Pokémon names in multiple languages.
+## Pokedex
 
-## 📝 Requirements
-- Proficiency in frontend web development (HTML, CSS/Tailwind, JavaScript).
-- Basic knowledge of Algolia and its InstantSearch library.
-- Use external APIs (PokéAPI).
-- Creativity in UI/UX design.
+The `pokedex/` directory contains the Algolia indexing of the relevant PokéAPI resources. See its [readme](pokedex/README.md) for more.
 
-## 🫣 Assignment Details
+## Web App
 
-### Part 1: Dataset Preparation and Enrichment
-1. **Initial Setup with Algolia**:
-   - Sign up to Algolia and create a new application. [sign up page](https://dashboard.algolia.com/users/sign_up)
+The web app is located in `react-boilerplate/` directory (as forked from the original repo).
 
-2. **Download the Provided Pokémon Dataset**:
-   - Begin with the basic dataset provided. [Pokedex.json](pokedex/pokedex.json)
-   - Upload the data to your Algolia Application, creating your first index.
+It's deployed with [Vercel](https://vercel.com/) and can be found at: https://demo-engineers-assignement-minja-slavkovics-projects.vercel.app/
 
-4. **Enrich the Dataset Using [PokéAPI](https://pokeapi.co/)**:
-   - The provided dataset is missing crucial information like `images` and `game_versions`. Enrich the your Algolia Index using the PokéAPI.
-   - For each Pokémon, retrieve:
-     - The image URL, storing it in an `imageUrl` field.
-     - The list of game versions it appears in, transforming this into a `game_versions` array.
-   - Use Algolia’s `browseObjects` method to fetch existing records, enrich them with PokéAPI information, and update your dataset using `partialUpdateObjects` to include `game_versions` and `imageUrl`.
-   - You can use the Algolia API Docs to conduct your data transformation. [Documentation API](https://www.algolia.com/doc/)
+Vercel deployment relies on the `dist/` subdirectory being present and it can be updated by running `$ npm run build`
 
-#### Expected Format of a Final Record in your newly Algolia Dashboard
+## Technologies Used
 
-```json
-{
-  "id": 15,
-  "name": {
-    "english": "Beedrill",
-    "japanese": "スピアー",
-    "chinese": "大针蜂",
-    "french": "Dardargnan"
-  },
-  "type": ["Bug", "Poison"],
-  "base": {
-    "HP": 65,
-    "Attack": 90,
-    "Defense": 40,
-    "Sp. Attack": 45,
-    "Sp. Defense": 80,
-    "Speed": 75
-  },
-  "game_versions": ["Red", "Blue", "Yellow", "Gold", "Silver", "Crystal"],
-  "imageUrl": "https://example.com/beedrill-image.png"
-}
-```
+* Algolia InstantSearch
+* React
+* TypeScript
+* Vite
+* React Spectrum
+* TailwindCss
+* Vercel
 
-### Part 2: Building the Search Experience
-1. **Project Setup**: Choose your preferred web development framework and set up the project. Use Tailwind or standard CSS/SASS for styling. You can also use the react-boilerplate that is provided in this repository. This boilerplate include:
-- Typescript
-- Tailwind
-- Instant Search
+## Features
 
-2. **Algolia Integration**:
-  - Implement Algolia search in your application using the InstantSearch library. [Instant Search Documentation](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/js/)
-
-3. **Search Interface**:
-  - **Search Bar**: Create a search bar to initiate searches.
-  - **Search Results**: Display dynamic search results, showing each Pokémon's image, name, type, and stats.
-  - **Filters**:
-    - Implement filters using instant search custom widget for Pokémon type, game versions, and at least one stat (using a range slider).
-    - Ensure the UI for these filters is intuitive and user-friendly.
-  - **Language Switcher**: Implement a dropdown to switch the display language of Pokémon names. Support English, Japanese, Chinese, and French.
-  - **Persistent Preferences**: Use local storage or any state manager with persistent services to save the user’s language preference across page reloads.
-
-Attached is a wireframe outlining the proposed design for your user interface. That said, feel free to exercise as much creativity as you wish.
-
-![Wireframe - DE - Assignement 2024](https://github.com/algolia/Demo-engineers-assignement/assets/47173348/009a0aaf-a9d2-4c30-9651-a118bf123897)
+* Live search results page: We're using InstantSearch to dynamically display results while typing in the search bar.
+* Search refinement list: The sidebar on the left contains search filters and range sliders (using Spectrum).
+* Search results preview: When clicked on the individual Pokémon, a modal window pops up and displays its image and characteristics.
+* Language Switcher: Allows users to switch between different languages for the application.
+  * This setting is preserved upon page reload, which is implemented using react local storage.
+* Image Switcher: Provides users with the ability to switch between different Pokémon image sets.
+  * This setting is preserved upon page reload, which is implemented using react local storage.
 
 
-### Evaluation Criteria
-- **Functionality**: All features including: search, filters, and the bonus features work correctly.
-- **Code Quality**: The code should be clean, well-documented and follow best practices. Important: The exercise should follow a coherent and logical folder structure.
-- **User Experience**: The application is intuitive, responsive, and visually appealing across devices.
-- **Algolia Integration**: Demonstrates an effective use of Algolia's search capabilities.
-- **Creativity and Problem-Solving**: Showcases innovative solutions and thoughtful UI/UX design.
-
-## 🎉 Submission Instructions
-- Submit your project as a GitHub repository link. Ensure it is public or shared with the relevant parties.
-- Include a README file with setup instructions, a brief overview of technologies used, and special instructions for accessing the features you've implemented, especially the bonus challenges.
-
-This assignment is designed to assess your technical skills, creativity, and problem-solving abilities in a practical scenario. We look forward to seeing how you leverage Algolia and the PokéAPI to create an engaging Pokémon search experience.
-
-Happy Coding 🪄
