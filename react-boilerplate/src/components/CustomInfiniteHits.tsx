@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useInfiniteHits, UseInfiniteHitsProps, Highlight } from 'react-instantsearch';
-import Modal from './Modal';
+import { Modal } from './Modal';
 
+// Define props for CustomInfiniteHits component.
 interface CustomInfiniteHitsProps extends UseInfiniteHitsProps {
     language: string;
     imageSwitchEnabled: boolean; 
@@ -9,22 +10,27 @@ interface CustomInfiniteHitsProps extends UseInfiniteHitsProps {
 }
 
 export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSwitching, ...props }: CustomInfiniteHitsProps) {
-    const { hits, showMore, isLastPage } = useInfiniteHits(props);
-
+    // State for hover effect and selected hit.
     const [isHovered, setIsHovered] = useState(false);
     const [hoveredHitIndex, setHoveredHitIndex] = useState(null);
     const [selectedHit, setSelectedHit] = useState(null);
 
+    // Get hits and functions from useInfiniteHits hook.
+    const { hits, showMore, isLastPage } = useInfiniteHits(props);
+
+    // Function to handle mouse enter event.
     const handleMouseEnter = (index: any) => {
         setIsHovered(true);
         setHoveredHitIndex(index);
     };
 
+    // Function to handle mouse leave event.
     const handleMouseLeave = () => {
         setIsHovered(false);
         setHoveredHitIndex(null);
     };
 
+    // Function to scroll to top.
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -32,6 +38,7 @@ export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSw
         });
     };
 
+    // Function to get localized hit name based on language.
     const getLocalizedHitName = (hit: any) => {
         switch (language) {
             case 'japanese':
@@ -61,16 +68,19 @@ export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSw
         }
     };
 
+    // Function to open modal.
     const openModal = (hit: any) => {
         setSelectedHit(hit);
     };
 
+    // Function to close modal.
     const closeModal = () => {
         setSelectedHit(null);
     };
 
     return (
         <div>
+            {/* List of hits */}
             <div className="flex flex-wrap -mx-2">
                 {hits.map((hit: any, index) => (
                     <div
@@ -81,6 +91,7 @@ export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSw
                         onClick={() => openModal(hit)}
                     >
                         <div className="bg-white shadow-md rounded-md overflow-hidden">
+                            {/* Image */}
                             <img
                                 src={
                                     isHovered && hoveredHitIndex === index
@@ -93,12 +104,15 @@ export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSw
                             <div className="p-4 flex">
                                 <div className="flex-1">
                                     <div className="justify-start">
+                                        {/* Hit name */}
                                         <h2 className="text-lg font-bold mb-2 font-mono">{getLocalizedHitName(hit)}</h2>
+                                        {/* Hit type */}
                                         <p className="text-gray-700 mb-2 font-mono">
                                             {hit.type.join(', ')}
                                         </p>
                                     </div>
                                 </div>
+                                {/* Pokeball image icon */}
                                 <div>
                                     <img src="../../public/pokeball.svg" alt="SVG Image" className="w-8 h-8 hover:translate-y-1 hover:translate-x-1" />
                                 </div>
@@ -107,6 +121,7 @@ export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSw
                     </div>
                 ))}
             </div>
+            {/* Buttons for scrolling to top and loading more results */}
             <div className="flex justify-center my-4">
                 <button
                     onClick={scrollToTop}
@@ -123,9 +138,8 @@ export function CustomInfiniteHits({ language, imageSwitchEnabled, toggleImageSw
                     Show more results
                 </button>
             </div>
+            {/* Modal for displaying details of selected hit */}
             <Modal isOpen={selectedHit !== null} onClose={closeModal} hit={selectedHit} imageSwitchEnabled={imageSwitchEnabled} language={language} />
         </div>
     );
 }
-
-

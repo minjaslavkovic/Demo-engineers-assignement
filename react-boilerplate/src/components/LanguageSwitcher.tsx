@@ -1,46 +1,47 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 
+// Define the props interface.
 interface LanguageSwitcherProps {
   language: string;
   setLanguage: (language: string) => void;
 }
 
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ language, setLanguage }) => {
+export const LanguageSwitcher = ({ language, setLanguage }: LanguageSwitcherProps) => {
+  // State for managing dropdown visibility.
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Function to toggle dropdown visibility.
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
+  // Function to handle language change.
   const handleLanguageChange = (selectedLanguage: string) => {
     setLanguage(selectedLanguage);
-    setIsOpen(false); 
+    setIsOpen(false);
   };
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setIsOpen(false); 
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
 
   return (
-    <div className="relative" ref={dropdownRef}>
-      <button onClick={toggleDropdown} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)} className="flex items-center focus:outline-none">
+    <div className="relative" >
+      {/* Button to toggle dropdown */}
+      <button
+        onClick={toggleDropdown}
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+        className="flex items-center focus:outline-none"
+      >
         <img src={`../../public/${language}.svg`} alt={`${language} flag`} className="rounded-full shadow-md w-8 h-8 object-cover" />
         <p className={`pl-2 text-gray-700 ${isOpen ? 'text-gray-800' : 'text-gray-600 hover:text-gray-800'}`} style={{ textTransform: 'capitalize' }}>{language}</p>
       </button>
 
       {/* Dropdown menu */}
       {isOpen && (
-        <div onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)} className="absolute top-full left-0 w-32 bg-white border rounded-md shadow-md">
+        <div
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+          className="absolute top-full left-0 w-32 bg-white border rounded-md shadow-md"
+        >
+          {/* Language options */}
           <div onClick={() => handleLanguageChange('english')} className="p-2 cursor-pointer flex items-center hover:bg-gray-100">
             <img src="../../public/english.svg" alt="GB flag" className={`rounded-full shadow-md w-8 h-8 object-cover ${language !== 'english' ? 'opacity-50' : ''}`} />
             <p className="text-sm text-gray-600 pl-2 hover:text-gray-800">English</p>
@@ -62,5 +63,3 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ language, setLangua
     </div>
   );
 };
-
-export default LanguageSwitcher;

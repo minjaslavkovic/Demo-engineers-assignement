@@ -1,8 +1,17 @@
-const Modal = (props: any) => {
-    const { isOpen, onClose, hit, imageSwitchEnabled, language } = props;
+// Define the props interface.
+interface ModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    hit: any;
+    imageSwitchEnabled: boolean;
+    language: string;
+}
 
+export const Modal = ({ isOpen, onClose, hit, imageSwitchEnabled, language }: ModalProps) => {
+    // If modal is not open, return null.
     if (!isOpen) return null;
 
+    // Function to get localized hit name based on language.
     const getLocalizedHitName = () => {
         switch (language) {
             case 'japanese':
@@ -16,6 +25,7 @@ const Modal = (props: any) => {
         }
     };
 
+    // Function to get the image URL based on image switch.
     const getImageUrl = () => {
         if (imageSwitchEnabled) {
             return hit.imageUrls[0];
@@ -31,63 +41,45 @@ const Modal = (props: any) => {
                     <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
                 </div>
 
+                {/* 
+                    This span element serves as a placeholder for vertical alignment within its container.
+                    It is hidden but still occupies space to maintain alignment.
+                */}
                 <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
                 <div className="inline-block bg-white rounded-xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div className="sm:flex sm:items-center sm:justify-center">
                             <div className="sm:w-1/2">
+                                {/* Display image */}
                                 <img src={getImageUrl()} alt={hit.name.english} className="w-full h-auto mx-auto" />
                             </div>
                             <div className="sm:w-1/2 sm:pl-8">
+                                {/* Display hit name and details */}
                                 <h3 className="text-lg leading-6 font-bold text-gray-900">{getLocalizedHitName()}</h3>
                                 <div className="mt-4">
+                                    {/* Display hit details */}
                                     <p className="text-sm text-gray-500 font-bold mb-1">Type:</p>
                                     <p className="mb-2">{hit.type.join(', ')}</p>
-                                    
+                                    {/* Display abilities */}
                                     <p className="text-sm text-gray-500 font-bold mb-1">Abilities:</p>
                                     <p className="mb-2">{hit.abilities.join(', ')}</p>
-
-                                    <div className="text-sm text-gray-500 font-bold mb-1">HP:</div>
-                                    <div className="flex items-center mb-2">
-                                        <div className="pr-2">{hit.base.HP}</div>
-                                        <input type="range" min="0" max="200" value={hit.base.HP} disabled className="w-full" />
-                                    </div>
-                                    
-                                    <div className="text-sm text-gray-500 font-bold mb-1">Attack:</div>
-                                    <div className="flex items-center mb-2">
-                                        <div className="pr-2">{hit.base.Attack}</div>
-                                        <input type="range" min="0" max="200" value={hit.base.Attack} disabled className="w-full" />
-                                    </div>
-                                    
-                                    <div className="text-sm text-gray-500 font-bold mb-1">Defense:</div>
-                                    <div className="flex items-center mb-2">
-                                        <div className="pr-2">{hit.base.Defense}</div>
-                                        <input type="range" min="0" max="200" value={hit.base.Defense} disabled className="w-full" />
-                                    </div>
-
-                                    <div className="text-sm text-gray-500 font-bold mb-1">Speed:</div>
-                                    <div className="flex items-center mb-2">
-                                        <div className="pr-2">{hit.base.Speed}</div>
-                                        <input type="range" min="0" max="200" value={hit.base.Speed} disabled className="w-full" />
-                                    </div>
-
-                                    <div className="text-sm text-gray-500 font-bold mb-1">Sp. Attack:</div>
-                                    <div className="flex items-center mb-2">
-                                        <div className="pr-2">{hit.base["Sp. Attack"]}</div>
-                                        <input type="range" min="0" max="200" value={hit.base["Sp. Attack"]} disabled className="w-full" />
-                                    </div>
-
-                                    <div className="text-sm text-gray-500 font-bold mb-1">Sp. Defense:</div>
-                                    <div className="flex items-center mb-2">
-                                        <div className="pr-2">{hit.base["Sp. Defense"]}</div>
-                                        <input type="range" min="0" max="200" value={hit.base["Sp. Defense"]} disabled className="w-full" />
-                                    </div>
+                                    {/* Display stats */}
+                                    {Object.keys(hit.base).map((key: string) => (
+                                        <div key={key}>
+                                            <div className="text-sm text-gray-500 font-bold mb-1">{key}:</div>
+                                            <div className="flex items-center mb-2">
+                                                <div className="pr-2">{hit.base[key]}</div>
+                                                <input type="range" min="0" max="200" value={hit.base[key]} disabled className="w-full" />
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                        {/* Close button */}
                         <button
                             onClick={onClose}
                             type="button"
@@ -100,7 +92,3 @@ const Modal = (props: any) => {
         </div>
     );
 }
-
-export default Modal;
-
-
